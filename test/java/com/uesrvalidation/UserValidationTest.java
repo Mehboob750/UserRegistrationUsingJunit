@@ -4,6 +4,7 @@ import org.junit.Assert;
 import org.junit.Test;
 
 public class UserValidationTest {
+    //Test cases for first name
     @Test
     public void givenFirstName_WhenProper_ShouldReturnTrue() {
         UserValidator validator=new UserValidator();
@@ -30,4 +31,13 @@ public class UserValidationTest {
         boolean result = validator.validateFirstName("@Mehboob");
         Assert.assertEquals(false, result);
     }
+
+    //Test cases for last name
+    @Test
+    public void givenLastName_WhenProper_ShouldReturnTrue() {
+        UserValidator validator=new UserValidator();
+        boolean result = validator.validateLastName("Shaikh");
+        Assert.assertEquals(true,result);
+    }
+
 }
