@@ -40,4 +40,27 @@ public class UserValidationTest {
         Assert.assertEquals(true,result);
     }
 
+    //Test cases to check EmailId
+    @Test
+    public void givenEmail_WhenValid_ShouldReturnTrue() {
+        UserValidator validator = new UserValidator();
+        boolean result = validator.validateEmailAddress("mehboob@bridgelabz.com");
+        Assert.assertEquals(true,result);
+    }
+
+    @Test
+    public void givenEmail_WhenItNotContainsSpecialSymbol_ShouldReturnFalse() {
+        UserValidator validator = new UserValidator();
+        boolean result = validator.validateEmailAddress("mehboobbridglabz.com");
+        Assert.assertEquals(false,result);
+    }
+
+    @Test
+    public void givenEmail_WhenInvalid_ShouldReturnFalse() {
+        UserValidator validator = new UserValidator();
+        boolean result = validator.validateEmailAddress("mehboob@.com");
+        Assert.assertEquals(false,result);
+    }
+
+
 }
