@@ -62,5 +62,31 @@ public class UserValidationTest {
         Assert.assertEquals(false,result);
     }
 
+    //Test cases to check moblie number
+
+    @Test
+    public void givenMobileNumber_WhenValid_ShouldReturnTrue() {
+        UserValidator validator = new UserValidator();
+        boolean result = validator.validateMobileNumber("1234567890");
+        Assert.assertEquals(true,result);
+    }
+    @Test
+    public void givenMobileNumber_WhenStartWithCountryCodeAndSpace_ShouldReturnTrue() {
+        UserValidator validator = new UserValidator();
+        boolean result = validator.validateMobileNumber("91 1234567890");
+        Assert.assertEquals(true,result);
+    }
+    @Test
+    public void givenMobileNumber_WhenStartWithCountryCodeAndWithoutSpace_ShouldReturnFalse() {
+        UserValidator validator = new UserValidator();
+        boolean result = validator.validateMobileNumber("911234567890");
+        Assert.assertEquals(false,result);
+    }
+    @Test
+    public void givenMobileNumber_WhenItContainsCharacterOrSpecialSymbol_ShouldReturnFalse() {
+        UserValidator validator = new UserValidator();
+        boolean result = validator.validateMobileNumber("12345678A@");
+        Assert.assertEquals(false,result);
+    }
 
 }
