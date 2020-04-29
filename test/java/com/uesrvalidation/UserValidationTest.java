@@ -118,4 +118,19 @@ public class UserValidationTest {
         Assert.assertEquals(false,result);
     }
 
+ //Test cases for Password Rule-3 should have atleast 1 Numeric number
+    @Test
+    public void givenPassword_WhenContainsAtleastOneNumericNumber_ShouldReturnTrue() {
+        UserValidator validator = new UserValidator();
+        boolean result = validator.validatePassword("abcABCab1");
+        Assert.assertEquals(true,result);
+    }
+    @Test
+    public void givenPassword_WhenNotContainsNumericNumber_ShouldReturnFalse() {
+        UserValidator validator = new UserValidator();
+        boolean result = validator.validatePassword("Aabcabcabc");
+        Assert.assertEquals(false,result);
+    }
+
+
 }
