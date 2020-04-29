@@ -89,4 +89,18 @@ public class UserValidationTest {
         Assert.assertEquals(false,result);
     }
 
+    //Test cases for Password Rule-1 minimum 8 Characters
+    @Test
+    public void givenPassword_WhenContainsMinimumEightCharacter_ShouldReturnTrue() {
+        UserValidator validator = new UserValidator();
+        boolean result = validator.validatePassword("Abcd1234");
+        Assert.assertEquals(true,result);
+    }
+
+    @Test
+    public void givenPassword_WhenContainsLessThanEightCharacter_ShouldReturnFalse() {
+        UserValidator validator = new UserValidator();
+        boolean result = validator.validatePassword("Abcd12");
+        Assert.assertEquals(false,result);
+    }
 }
