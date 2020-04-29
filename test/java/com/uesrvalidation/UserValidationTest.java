@@ -103,4 +103,19 @@ public class UserValidationTest {
         boolean result = validator.validatePassword("Abcd12");
         Assert.assertEquals(false,result);
     }
+    //Test cases for Password Rule-2 should have atleast 1 uppercase Character
+    @Test
+    public void givenPassword_WhenContainsAtleastOneUpperCaseCharacter_ShouldReturnTrue() {
+        UserValidator validator = new UserValidator();
+        boolean result = validator.validatePassword("abcABCabc");
+        Assert.assertEquals(true,result);
+    }
+
+    @Test
+    public void givenPassword_WhenNotContainsUpperCaseCharacter_ShouldReturnFalse() {
+        UserValidator validator = new UserValidator();
+        boolean result = validator.validatePassword("abcabcabc");
+        Assert.assertEquals(false,result);
+    }
+
 }
