@@ -107,7 +107,7 @@ public class UserValidationTest {
     @Test
     public void givenPassword_WhenContainsAtleastOneUpperCaseCharacter_ShouldReturnTrue() {
         UserValidator validator = new UserValidator();
-        boolean result = validator.validatePassword("abcABCabc");
+        boolean result = validator.validatePassword("abcABCabc1");
         Assert.assertEquals(true,result);
     }
 
@@ -131,6 +131,18 @@ public class UserValidationTest {
         boolean result = validator.validatePassword("Aabcabcabc");
         Assert.assertEquals(false,result);
     }
+    //Test cases for Password Rule-4 should have 1 Special character
+    @Test
+    public void givenPassword_WhenContainsOneSpecialCharacter_ShouldReturnTrue() {
+        UserValidator validator = new UserValidator();
+        boolean result = validator.validatePassword("abcABCab1@");
+        Assert.assertTrue(result);
+    }
 
-
+    @Test
+    public void givenPassword_WhenContainsMoreThanOneSpecialCharacter_ShouldReturnFalse() {
+        UserValidator validator = new UserValidator();
+        boolean result = validator.validatePassword("abcABC#ab1@");
+        Assert.assertFalse(result);
+    }
 }
