@@ -9,24 +9,24 @@ public class UserValidator {
     private static final String EMAIL_PATTERN = "^[0-9a-zA-Z]+([._+-][0-9a-zA-Z]+)*@[0-9a-zA-Z]+.[a-zA-Z]{2,4}([.][a-zA-Z]{2,3})?$";
     private static final String MOBILE_PATTERN = "^([0-9]{2}[ ])?([1-9]{1}[0-9]{9})$";
     private static final String PASSWORD_PATTERN = "((?=.*[a-z])(?=.*[A-Z])(?=.*[0-9]).{8,})";
-    public boolean validateFirstName(String fname) {
+    public boolean validateFirstName(String firstName) {
         Pattern pattern = Pattern.compile(PATTERN);
-        return pattern.matcher(fname).matches();
+        return pattern.matcher(firstName).matches();
     }
 
-    public boolean validateLastName(String lname) {
+    public boolean validateLastName(String lastName) {
         Pattern pattern = Pattern.compile(PATTERN);
-        return pattern.matcher(lname).matches();
+        return pattern.matcher(lastName).matches();
     }
 
-    public boolean validateEmailAddress(String email) {
+    public boolean validateEmailAddress(String emailId) {
         Pattern pattern = Pattern.compile(EMAIL_PATTERN);
-        return pattern.matcher(email).matches();
+        return pattern.matcher(emailId).matches();
     }
 
-    public boolean validateMobileNumber(String mobile) {
+    public boolean validateMobileNumber(String mobileNumber) {
          Pattern pattern = Pattern.compile(MOBILE_PATTERN);
-         return pattern.matcher(mobile).matches();
+         return pattern.matcher(mobileNumber).matches();
     }
 
     public boolean validatePassword(String password) {
